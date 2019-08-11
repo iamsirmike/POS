@@ -27,8 +27,10 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 /* End config */
 
-// $conn=mysqli_connect("localhost","root","","posales");
-//     if(mysqli_connect_errno())//function to check database connection
-//     { die("connection failed"). mysqli_connect_errno(); } //error message for connection failed 
+$conn = mysqli_connect("$cleardb_server", "$cleardb_username", "$cleardb_password", "$cleardb_db");
+if (mysqli_connect_errno())//function to check database connection
+{
+    die("connection failed") . mysqli_connect_errno();
+} //error message for connection failed 
 
-// ?>
+?>
