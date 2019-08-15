@@ -27,24 +27,9 @@ POS
 <link rel="stylesheet" type="text/css" href="tcal.css" />
 <script type="text/javascript" src="tcal.js"></script>
 <script type="text/javascript" src="reportsgraph.js"></script>
-<script language="javascript">
-function Clickheretoprint()
-{ 
-  var disp_setting="toolbar=yes,location=no,directories=yes,menubar=yes,"; 
-      disp_setting+="scrollbars=yes,width=700, height=400, left=100, top=25"; 
-  var content_vlue = document.getElementById("content").innerHTML; 
-  
-  var docprint=window.open("","",disp_setting); 
-   docprint.document.open(); 
-   docprint.document.write('</head><body onLoad="self.print()" style="width: 700px; font-size:11px; font-family:arial; font-weight:normal;">');          
-   docprint.document.write(content_vlue); 
-   docprint.document.close(); 
-   docprint.focus(); 
-}
-</script>
+</head>
 
-
- <script language="javascript" type="text/javascript">
+<script language="javascript" type="text/javascript">
 /* Visit http://www.yaldex.com/ for full source code
 and get more free JavaScript, CSS and DHTML scripts! */
 <!-- Begin
@@ -75,31 +60,7 @@ showtime();
 }
 window.onload=startclock;
 // End -->
-</SCRIPT>
-
-</head>
-<?php
-function createRandomPassword()
-{
-  $chars = "003232303232023232023456789";
-  srand((double)microtime() * 1000000);
-  $i = 0;
-  $pass = '';
-  while ($i <= 7) {
-
-    $num = rand() % 33;
-
-    $tmp = substr($chars, $num, 1);
-
-    $pass = $pass . $tmp;
-
-    $i++;
-
-  }
-  return $pass;
-}
-$finalcode = 'RS-' . createRandomPassword();
-?>
+</SCRIPT>	
 <body style="background-color:#e9e9e9 !important;">
 <?php include('navfixed.php'); ?>
 <div class="container-fluid" style="margin-top:20px;">
@@ -133,25 +94,35 @@ $finalcode = 'RS-' . createRandomPassword();
             <p><center style="padding-top: 20px;">Total Sales <i class="icon-shopping-cart icon-2x" style="color:#0489bd !important;"></i></center></p>
              <p>
                 <center style="padding-top: 10px;font-size: 30px;"> 
-                  <?php
-                  include('../connect.php');
-                  $totsales = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM sales_order"));
-                  echo $totsales;
-                  ?>     
+                <?php
+                include('../connect.php');
+                $resultas = $db->prepare("SELECT sum(amount) from sales_orderSaved");
+                $resultas->bindParam(':a', $sdsd);
+                $resultas->execute();
+                for ($i = 0; $rowas = $resultas->fetch(); $i++) {
+                  $fgfg = $rowas['sum(amount)'];
+                  echo "GHC $fgfg";
+                }
+                ?>   
                 </center>
               </p>
          </div>
          </td>
         <td colspan="1">
           <div style="background-color:#fff !important;height:100px;">
-            <p><center style="padding-top: 20px;">Category <i class="icon-sitemap icon-2x" style="color:#0489bd !important;"></i></center></p>
+            <p><center style="padding-top: 20px;">Total Profit <i class="icon-money icon-2x" style="color:#0489bd !important;"></i></center></p>
              <p>
                 <center style="padding-top: 10px;font-size: 30px;"> 
-                  <?php
-                  include('../connect.php');
-                  $totsales = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM sales_order"));
-                  echo $totsales;
-                  ?>     
+                <?php
+                include('../connect.php');
+                $resultas = $db->prepare("SELECT sum(profit) from sales_orderSaved");
+                $resultas->bindParam(':a', $sdsd);
+                $resultas->execute();
+                for ($i = 0; $rowas = $resultas->fetch(); $i++) {
+                  $fgfg = $rowas['sum(profit)'];
+                  echo "GHC $fgfg";
+                }
+                ?>   
                 </center>
               </p>
           </div>
@@ -205,23 +176,23 @@ $finalcode = 'RS-' . createRandomPassword();
 </div>
   <?php
   include('../connect.php');
-  $jan = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM sales_order WHERE YEAR(date_bought) = YEAR(NOW()) AND MONTH(date) = 1  "));
-  $feb = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM sales_order WHERE YEAR(date_bought) = YEAR(NOW()) AND MONTH(date) = 2  "));
-  $mar = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM sales_order WHERE YEAR(date_bought) = YEAR(NOW()) AND MONTH(date) = 3  "));
-  $apr = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM sales_order WHERE YEAR(date_bought) = YEAR(NOW()) AND MONTH(date) = 4  "));
-  $may = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM sales_order WHERE YEAR(date_bought) = YEAR(NOW()) AND MONTH(date) = 5  "));
-  $jun = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM sales_order WHERE YEAR(date_bought) = YEAR(NOW()) AND MONTH(date) = 6  "));
-  $july = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM sales_order WHERE YEAR(date_bought) = YEAR(NOW()) AND MONTH(date_bought)=7 "));
-  $aug = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM sales_order WHERE YEAR(date_bought) = YEAR(NOW()) AND MONTH(date) = 8 "));
-  $sept = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM sales_order WHERE YEAR(date_bought) = YEAR(NOW()) AND MONTH(date) = 9  "));
-  $oct = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM sales_order WHERE YEAR(date_bought) = YEAR(NOW()) AND MONTH(date) = 10  "));
-  $nov = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM sales_order WHERE YEAR(date_bought) = YEAR(NOW()) AND MONTH(date) = 11  "));
-  $dec = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM sales_order WHERE YEAR(date_bought) = YEAR(NOW()) AND MONTH(date) = 12 "));
+  $jan = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM sales_orderSaved WHERE YEAR(date_bought) = YEAR(NOW()) AND MONTH(date_bought) = 1  "));
+  $feb = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM sales_orderSaved WHERE YEAR(date_bought) = YEAR(NOW()) AND MONTH(date_bought) = 2  "));
+  $mar = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM sales_orderSaved WHERE YEAR(date_bought) = YEAR(NOW()) AND MONTH(date_bought) = 3  "));
+  $apr = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM sales_orderSaved WHERE YEAR(date_bought) = YEAR(NOW()) AND MONTH(date_bought) = 4  "));
+  $may = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM sales_orderSaved WHERE YEAR(date_bought) = YEAR(NOW()) AND MONTH(date_bought) = 5  "));
+  $jun = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM sales_orderSaved WHERE YEAR(date_bought) = YEAR(NOW()) AND MONTH(date_bought) = 6  "));
+  $july = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM sales_orderSaved WHERE YEAR(date_bought) = YEAR(NOW()) AND MONTH(date_bought)=7 "));
+  $aug = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM sales_orderSaved WHERE YEAR(date_bought) = YEAR(NOW()) AND MONTH(date_bought) = 8 "));
+  $sept = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM sales_orderSaved WHERE YEAR(date_bought) = YEAR(NOW()) AND MONTH(date_bought) = 9  "));
+  $oct = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM sales_orderSaved WHERE YEAR(date_bought) = YEAR(NOW()) AND MONTH(date_bought) = 10  "));
+  $nov = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM sales_orderSaved WHERE YEAR(date_bought) = YEAR(NOW()) AND MONTH(date_bought) = 11  "));
+  $dec = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM sales_orderSaved WHERE YEAR(date_bought) = YEAR(NOW()) AND MONTH(date_bought) = 12 "));
   ?>  
-    <?php
-    include('../connect.php');
-    $jan = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM sales_order WHERE YEAR(date_bought) = YEAR(NOW()) AND MONTH(date) = 1  "));
-    ?> 
+    <!-- <//?php
+    //include('../connect.php');
+    //$jan = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM sales_orderSaved WHERE YEAR(date_bought) = YEAR(NOW()) AND MONTH(date) = 1  "));
+    ?>  -->
 
 </body>
 <script>

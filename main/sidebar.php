@@ -7,7 +7,7 @@
 			<li class=""><a href="cat.php" class="nv"><i class="icon-edit icon-2x" style="color:#008080 !important;"></i> Categories</a>                                     </li>
 			<li><a href="customer.php" class="nv"><i class="icon-group icon-2x" style="color:#ffff00 !important;"></i> Customers</a>                                    </li>
 			<li><a href="supplier.php" class="nv"><i class="icon-list-alt icon-2x" style="color:#ff69b4 !important;"></i> Suppliers</a>                                    </li>
-			<li><a href="salesreport.php?d1=0&d2=0" class="nv"><i class="icon-bar-chart icon-2x" style="color:#00ff7f !important;"></i> Sales Report</a>                </li>
+			<li><a href="salesreport.php?d1=0&d2=0" class="nv"><i class="icon-th icon-2x" style="color:#00ff7f !important;"></i> Sales Report</a>                </li>
 			<li><a href="sales_inventory.php" class="nv"><i class="icon-table icon-2x" style="color:#8a2be2 !important;"></i> Sales Orders</a>                </li>
 			
 				<br><br><br><br><br><br>		

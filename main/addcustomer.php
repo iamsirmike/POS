@@ -6,8 +6,8 @@
 <span>Full Name : </span><input type="text" style="width:265px; height:30px;" name="name" placeholder="Full Name" Required/><br>
 <span>Address : </span><input type="text" style="width:265px; height:30px;" name="address" placeholder="Address"/><br>
 <span>Contact : </span><input type="text" style="width:265px; height:30px;" name="contact" placeholder="Contact"/><br>
-<span>Email : </span><input type="text" style="width:265px; height:30px;" name="email"></input><br>
-<span>City: </span><input type="text" style="width:265px; height:30px;" name="city" placeholder="Total"/><br>
+<span>Email : </span><input type="text" style="width:265px; height:30px;" name="email" placeholder="email"></input><br>
+<span>City: </span><input type="text" style="width:265px; height:30px;" name="city" placeholder="city"/><br>
 <div style="margin-left: 100px !important;">
 <button class="btn btn-success btn-block btn-large" style="width:267px;"><i class="icon icon-save icon-large"></i> Save</button>
 </div>

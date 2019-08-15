@@ -249,7 +249,7 @@ $total = $result->rowcount();
 
 			<td><?php echo $row['product_code']; ?></td>
 			<td><?php echo $row['product_name']; ?></td>
-			<td><?php echo $row['gen_name']; ?></td>
+			<td><?php echo $row['category']; ?></td>
 					<td><?php echo $row['supplier']; ?></td>
 			<td><?php echo $row['date_arrival']; ?></td>
 			<td><?php echo $row['expiry_date']; ?></td>

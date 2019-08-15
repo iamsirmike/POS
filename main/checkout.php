@@ -111,16 +111,18 @@ background-repeat:no-repeat;
         <div class="suggestionList" id="suggestionsList"> &nbsp; </div>
       </div>
 <?php
-$asas=$_GET['pt'];
-if($asas=='credit') {
-?>Due Date: <input type="date" name="due" placeholder="Due Date" style="width: 268px; height:30px; margin-bottom: 15px;" /><br>
+$asas = $_GET['pt'];
+if ($asas == 'credit') {
+	?>Due Date: <input type="date" name="due" placeholder="Due Date" style="width: 268px; height:30px; margin-bottom: 15px;" /><br>
 <?php
+
 }
-if($asas=='cash') {
-?>
+if ($asas == 'cash') {
+	?>
 
 <input type="number" name="cash" placeholder="Cash paid" min="1" style="width: 268px; height:30px;  margin-bottom: 15px;"  required/><br>
 <?php
+
 }
 ?><button class="btn btn-success btn-block btn-large" style="width:267px;"><i class="icon icon-save icon-large"></i> Save</button>
 </center> <br>

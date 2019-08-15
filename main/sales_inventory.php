@@ -135,7 +135,7 @@ window.onload=startclock;
 			<li class=""><a href="cat.php" class="nv"><i class="icon-edit icon-2x" style="color:#008080 !important;"></i> Categories</a>                                     </li>
 			<li><a href="customer.php" class="nv"><i class="icon-group icon-2x" style="color:#ffff00 !important;"></i> Customers</a>                                    </li>
 			<li><a href="supplier.php" class="nv"><i class="icon-list-alt icon-2x" style="color:#ff69b4 !important;"></i> Suppliers</a>                                    </li>
-			<li><a href="salesreport.php?d1=0&d2=0" class="nv"><i class="icon-bar-chart icon-2x" style="color:#00ff7f !important;"></i> Sales Report</a>                </li>
+			<li><a href="salesreport.php?d1=0&d2=0" class="nv"><i class="icon-th icon-2x" style="color:#00ff7f !important;"></i> Sales Report</a>                </li>
 			<li><a href="sales_inventory.php" class="nv"><i class="icon-table icon-2x" style="color:#8a2be2 !important;"></i> Sales Orders</a>                </li>
 				<br><br><br><br><br><br>		
 			<li>
@@ -203,7 +203,7 @@ window.onload=startclock;
 			return $number;
 		}
 		include('../connect.php');
-		$result = $db->prepare("SELECT * FROM sales_order ORDER BY transaction_id DESC");
+		$result = $db->prepare("SELECT * FROM sales_orderSaved ORDER BY transaction_id DESC");
 		$result->execute();
 		for ($i = 0; $row = $result->fetch(); $i++) {
 			?>
@@ -211,7 +211,7 @@ window.onload=startclock;
 			<td><?php echo $row['invoice']; ?></td>
 			<td><?php echo $row['date']; ?></td>
 			<td><?php echo $row['product_code']; ?></td>
-			<td><?php echo $row['gen_name']; ?></td>
+			<td><?php echo $row['category']; ?></td>
 			<td><?php echo $row['name']; ?></td>
 			<td><?php
 						$price = $row['price'];
@@ -253,7 +253,7 @@ window.onload=startclock;
 				<th colspan="7"><strong style="font-size: 20px; color: #222222;">Total:</strong></th>
 				<th colspan="1"><strong style="font-size: 13px; color: #222222;">
 				<?php
-			$resultas = $db->prepare("SELECT sum(amount) from sales_order");
+			$resultas = $db->prepare("SELECT sum(amount) from sales_orderSaved");
 			$resultas->bindParam(':a', $sdsd);
 			$resultas->execute();
 			for ($i = 0; $rowas = $resultas->fetch(); $i++) {
@@ -264,7 +264,7 @@ window.onload=startclock;
 				</strong></th>
 				<th colspan="1"><strong style="font-size: 13px; color: #222222;">
 				<?php
-			$resultas = $db->prepare("SELECT sum(profit) from sales_order");
+			$resultas = $db->prepare("SELECT sum(profit) from sales_orderSaved");
 			$resultas->bindParam(':b', $sdsd);
 			$resultas->execute();
 			for ($i = 0; $rowas = $resultas->fetch(); $i++) {

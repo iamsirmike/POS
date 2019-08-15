@@ -35,9 +35,9 @@ if ($position == 'admin') {
 <a href="cat.php" class="shad" style="background-color:#ffffff !important; color:#000000; height:100px !important;"><i class="icon-edit icon-2x" style="color:#008080 !important;"></i><br><br><b style="font-size:25px;"> Categories</b></a>     
 <a href="customer.php" class="shad" style="background-color:#ffffff !important; color:#000000; height:100px !important;"><i class="icon-group icon-2x" style="color:#ffff00 !important;"></i><br><br><b style="font-size:25px;"> Customers</b></a>     
 <a href="supplier.php" class="shad" style="background-color:#ffffff !important; color:#000000; height:100px !important;"><i class="icon-list-alt icon-2x" style="color:#ff69b4 !important;"></i><br><br><b style="font-size:25px;"> Suppliers</b></a>     
-<a href="salesreport.php?d1=0&d2=0" class="shad" style="background-color:#ffffff !important; color:#000000; height:100px !important;"><i class="icon-bar-chart icon-2x" style="color:#00ff7f !important;"></i><br><br><b style="font-size:25px;"> Sales Report</b></a>     
+<a href="salesreport.php?d1=0&d2=0" class="shad" style="background-color:#ffffff !important; color:#000000; height:100px !important;"><i class="icon-th icon-2x" style="color:#00ff7f !important;"></i><br><br><b style="font-size:25px;"> Sales Report</b></a>     
 <a href="admin-settings.php" class="shad" style="background-color:#ffffff !important; color:#000000; height:100px !important;"><i class="icon-user icon-2x" style="color:#8a2be2 !important;"></i><br><br><b style="font-size:25px;"> User Manager</b></a>
-<a href="dashboard.php" class="shad" style="background-color:#ffffff !important; color:#000000; height:100px !important;"><i class="icon-list icon-2x" style="color:#dab !important;"></i><br><br><b style="font-size:25px;"> Graphical Reports</b></a>  
+<a href="dashboard.php" class="shad" style="background-color:#ffffff !important; color:#000000; height:100px !important;"><i class="icon-bar-chart icon-2x" style="color:#dab !important;"></i><br><br><b style="font-size:25px;"> Graphical Reports</b></a>  
 <?php 
 }
 ?>

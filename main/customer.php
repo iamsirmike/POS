@@ -153,7 +153,7 @@ $rowcount = $result->rowcount();
 			<td><?php echo $row['address']; ?></td>
 			<td><?php echo $row['contact']; ?></td>
 			<td><?php echo $row['email']; ?></td>
-			<td>P <?php echo $row['city']; ?>.00</td>
+			<td><?php echo $row['city']; ?></td>
 			
 
 			<td><a  title="Click To Edit Customer" rel="facebox" href="editcustomer.php?id=<?php echo $row['customer_id']; ?>"><button class="btn btn-warning btn-mini"><i class="icon-edit"></i> Edit </button></a>
