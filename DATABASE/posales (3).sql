@@ -288,22 +288,6 @@ INSERT INTO `sales_orderSaved` (`transaction_id`, `invoice`, `product`, `qty`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `student`
---
-
-CREATE TABLE `student` (
-  `student_id` int(11) NOT NULL,
-  `student_no` varchar(8) NOT NULL,
-  `firstname` varchar(30) NOT NULL,
-  `middlename` varchar(30) NOT NULL,
-  `lastname` varchar(30) NOT NULL,
-  `course` varchar(8) NOT NULL,
-  `section` varchar(6) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `supliers`
 --
 
