@@ -472,11 +472,6 @@ ALTER TABLE `sales_order`
 ALTER TABLE `sales_orderSaved`
   MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
--- AUTO_INCREMENT for table `student`
---
-ALTER TABLE `student`
-  MODIFY `student_id` int(11) NOT NULL AUTO_INCREMENT;
---
 -- AUTO_INCREMENT for table `supliers`
 --
 ALTER TABLE `supliers`
